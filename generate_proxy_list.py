@@ -13,7 +13,7 @@ class ProxyListScraper:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
     
-    def scrape_proxy_list(self):
+    def scrape_proxy_list(self) -> list:
         """抓取代理列表"""
         try:
             print(f"正在抓取代理列表: {self.url}")
@@ -60,7 +60,8 @@ class ProxyListScraper:
             print(f"抓取错误: {e}")
             return []
     
-    def save_to_file(self, proxies, filename='proxy.txt'):
+    def save_to_file(self, proxies, filename: str='proxy.txt') -> bool:
+        # TODO: add type annotations for remaining parameters/return type
         """保存代理列表到文件"""
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -79,7 +80,7 @@ class ProxyListScraper:
             print(f"保存文件错误: {e}")
             return False
 
-def main():
+def main() -> None:
     """主函数"""
     scraper = ProxyListScraper()
     
